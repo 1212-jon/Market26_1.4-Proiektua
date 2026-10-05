@@ -10,15 +10,14 @@
 
 
 <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<maven.compiler.target>1.8</maven.compiler.target>
+	<maven.compiler.source>1.8</maven.compiler.source>
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	<sonar.organization>1212-jon</sonar.organization>
+	<sonar.projectKey>1212-jon_market</sonar.projectKey>
+	<sonar.token>7ff45a21b2e67a12e14354bae29bdd27c8231939</sonar.token>
+</properties>
 
-    <sonar.organization>1212-jon</sonar.organization>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.projectKey>1212-jon_Market26_1.4-Proiektua2</sonar.projectKey>
-    <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-  </properties>
  <build>
     <plugins>
       <plugin>
