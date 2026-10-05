@@ -16,8 +16,9 @@
 
     <sonar.organization>1212-jon</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.projectKey>1212-jon_Market26_1.4-Proiektua</sonar.projectKey>
+    <sonar.projectKey>Market26_1.4-Proiektua</sonar.projectKey>
     <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+  </properties>rage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
  <build>
     <plugins>
