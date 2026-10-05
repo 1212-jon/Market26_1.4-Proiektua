@@ -834,4 +834,36 @@ public class DataAccess  {
             if (db.getTransaction().isActive()) db.getTransaction().rollback();
         }
     }
+    /**
+     * Datu-basetik Seller bat ezabatzen du bere emaila erabiliz.
+     * Pruebetako garbiketa-lanak (@Before / @After) egiteko baliagarria.
+     * 
+     * @param email Ezabatu nahi den saltzailearen emaila
+     * @return true ezabaketa zuzena izan bada, false bestela
+     */
+    public boolean removeSeller(String email) {
+        if (email == null) {
+            return false;
+        }
+        
+        try {
+            db.getTransaction().begin();
+            Seller seller = db.find(Seller.class, email);
+            if (seller != null) {
+                db.remove(seller);
+                db.getTransaction().commit();
+                return true;
+            }
+            if (db.getTransaction().isActive()) {
+                db.getTransaction().rollback();
+            }
+            return false;
+        } catch (Exception e) {
+            if (db.getTransaction().isActive()) {
+                db.getTransaction().rollback();
+            }
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

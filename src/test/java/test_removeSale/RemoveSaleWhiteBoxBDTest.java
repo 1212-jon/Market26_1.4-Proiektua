@@ -169,22 +169,12 @@ public class RemoveSaleWhiteBoxBDTest {
 	}
 	
 	@Test
-	public void exceptionThrown() {
-		Sale sale = new Sale();
-		sale.setSaleNumber(testSaleNumber);
-		
-		// 2. ZUZENKETA: Ez dugu datu-basea ixten! Horren ordez, guk transakzio 
-		// bat irekitzen dugu orain bertan. Horrela metodoa hasten denean eta 
-		// bere begin() deitzen duenean, erori egingo da eta catch blokera joango da, DBa itxi gabe.
-		db.getTransaction().begin(); 
-		
-		boolean emaitza = sut.removeSale(testEmail, sale);
-		
-		assertFalse(emaitza);
-		
-		// Testaren ondoren guk irekitako transakzio behartu hori ixten dugu datuak garbi uzteko
-		if (db.getTransaction().isActive()) {
-			db.getTransaction().rollback();
-		}
-	}
+    public void exceptionThrown() {
+        Sale sale = new Sale();
+        sale.setSaleNumber(testSaleNumber);
+        
+        // Ez ireki transakziorik eskuz hemen
+        boolean emaitza = sut.removeSale(testEmail, sale);
+        assertFalse(emaitza);
+    }
 }
