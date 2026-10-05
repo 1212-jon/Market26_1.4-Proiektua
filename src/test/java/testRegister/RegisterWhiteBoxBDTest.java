@@ -57,7 +57,7 @@ public class RegisterWhiteBoxBDTest {
 
     @Test
     public void testRegisterEmailaDBan() {
-        // Sortu datu basean egoteko:
+        // Sortu datu basean egoteko.:
         sut.register("jonhodeienara@gmail.com", "Enara", "Abcde1234!");
         
         // Berriro saiatu (dagoeneko badago)
