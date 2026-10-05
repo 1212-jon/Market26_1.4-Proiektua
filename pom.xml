@@ -8,7 +8,7 @@
   <artifactId>Market26</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <properties>
+<properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,6 @@
     <sonar.projectKey>1212-jon_Market26_1.4-Proiektua</sonar.projectKey>
     <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
-
  <build>
     <plugins>
       <plugin>
