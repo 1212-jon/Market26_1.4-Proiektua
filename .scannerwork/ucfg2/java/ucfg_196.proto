@@ -1,0 +1,67 @@
+
+GbusinessLogic.BLFacadeImplementation#isBlacklisted(Ljava/lang/String;)ZC
+7src\main\java\businessLogic\BLFacadeImplementation.javaë ë( "startingBlock*á
+startingBlock
+ë  ë(.Ö
+Ç
+
+ê ê(
+%3"
+__annotate*)
+
+__unknown_file (
+	WebMethod*7
+
+__unknown_file (
+
+emailjava.lang.String[
+Y
+
+ë( ë(-
+emailjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%3*
+1*Ã
+1
+í í(o
+m
+
+í í(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagero
+m
+
+ì ì(
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerH
+F
+
+ì ì(5
+resboolean"__id*"
+
+__unknown_file (
+""o
+m
+
+î î(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager"
+
+ï ï(
+
+resboolean:'
+
+ë! ë(-
+emailjava.lang.StringB(&
+$businessLogic.BLFacadeImplementationHX

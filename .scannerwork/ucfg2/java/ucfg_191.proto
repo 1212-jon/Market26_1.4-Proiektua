@@ -1,0 +1,119 @@
+
+^businessLogic.BLFacadeImplementation#createReclamation(ILjava/lang/String;Ljava/lang/String;)ZC
+7src\main\java\businessLogic\BLFacadeImplementation.javaØ Ø($"startingBlock*×
+startingBlock
+Ø$ Ø(\|
+z
+
+× ×(
+%3"
+__annotate*)
+
+__unknown_file (
+	WebMethod*/
+
+__unknown_file (
+
+
+saleNumberintS
+Q
+
+Ø) Ø(3
+
+saleNumberint"__annotation*"
+
+__unknown_file (
+
+%3Œ
+‰
+
+× ×(
+%4"
+__annotate*)
+
+__unknown_file (
+	WebMethod*>
+
+__unknown_file ("
+ 
+deskribapenajava.lang.Stringb
+`
+
+Ø< Ø(H 
+deskribapenajava.lang.String"__annotation*"
+
+__unknown_file (
+
+%4Š
+‡
+
+× ×(
+%5"
+__annotate*)
+
+__unknown_file (
+	WebMethod*<
+
+__unknown_file ( 
+
+
+buyerEmailjava.lang.String`
+^
+
+ØQ Ø([
+
+buyerEmailjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%5*
+1*Ì
+1
+Ù Ù(o
+m
+
+Ù Ù(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagero
+m
+
+Ú Ú(
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerH
+F
+
+Ú Ú(X
+resboolean"__id*"
+
+__unknown_file (
+""o
+m
+
+Û Û(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager"
+
+Ü Ü(
+
+resboolean:
+
+Ø% Ø(4
+
+saleNumberint:.
+
+Ø5 Ø(I 
+deskribapenajava.lang.String:,
+
+ØJ Ø([
+
+buyerEmailjava.lang.StringB(&
+$businessLogic.BLFacadeImplementationHX

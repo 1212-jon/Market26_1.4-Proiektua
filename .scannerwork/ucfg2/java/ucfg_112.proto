@@ -1,0 +1,53 @@
+
+&gui.AukerakErosiGUI#%field_initializer0
+&src\main\java\gui\AukerakErosiGUI.java ("1*ö
+1
+__unknown_file (_
+]
+ ($'
+gui.AukerakErosiGUI"
+jContentPane"__id*"
+
+__unknown_file (
+""b
+`
+ ((*
+gui.AukerakErosiGUI"
+btnErregistratu"__id*"
+
+__unknown_file (
+""_
+]
+ (%'
+gui.AukerakErosiGUI"
+btnSaioaHasi"__id*"
+
+__unknown_file (
+""^
+\
+ ($&
+gui.AukerakErosiGUI"
+btnBisitari"__id*"
+
+__unknown_file (
+""DB
+-- -(8
+%0javax.swing.ButtonGroup"javax.swing.ButtonGroupr
+p
+-) -(:
+%1"!javax.swing.ButtonGroup#<init>()V*;
+
+__unknown_file (
+
+%0javax.swing.ButtonGroupw
+u
+- -(;&
+gui.AukerakErosiGUI"
+buttonGroup"__id*;
+
+__unknown_file (
+
+%0javax.swing.ButtonGroup"
+ ¢(
+implicit returnB
+gui.AukerakErosiGUI

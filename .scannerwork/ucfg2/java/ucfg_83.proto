@@ -1,0 +1,137 @@
+
+ domain.Seller#%field_initializer*
+ src\main\java\domain\Seller.java ("1*Ω
+1
+__unknown_file (<:
+    (/
+%0java.util.ArrayList"java.util.ArrayListj
+h
+   (1
+%1"java.util.ArrayList#<init>()V*7
+
+__unknown_file (
+
+%0java.util.ArrayListg
+e
+  (2
+domain.Seller"
+sales"__id*7
+
+__unknown_file (
+
+%0java.util.ArrayList86
+## #(0
+%2java.util.HashSet"java.util.HashSetf
+d
+# #(2
+%3"java.util.HashSet#<init>()V*5
+
+__unknown_file (
+
+%2java.util.HashSeti
+g
+" #(3
+domain.Seller"
+	erosketak"__id*5
+
+__unknown_file (
+
+%2java.util.HashSet<:
+&& &(5
+%4java.util.ArrayList"java.util.ArrayListj
+h
+&" &(7
+%5"java.util.ArrayList#<init>()V*7
+
+__unknown_file (
+
+%4java.util.ArrayListm
+k
+% &(8 
+domain.Seller"
+saldutakoak"__id*7
+
+__unknown_file (
+
+%4java.util.ArrayList'%
+). )(D
+%6"java.util.ArrayListU
+S
+)* )(F
+%7"java.util.ArrayList#<init>()V*"
+
+__unknown_file (
+
+%6Y
+W
+( )(G!
+domain.Seller"
+transactions"__id*"
+
+__unknown_file (
+
+%6$"
+-9 -(L
+%8"java.util.VectorR
+P
+-5 -(N
+%9"java.util.Vector#<init>()V*"
+
+__unknown_file (
+
+%8d
+b
++ -(O,
+domain.Seller"
+jasoatakoErreklamazioak"__id*"
+
+__unknown_file (
+
+%8=;
+2! 2(0
+%10java.util.ArrayList"java.util.ArrayListl
+j
+2 2(2
+%11"java.util.ArrayList#<init>()V*8
+
+__unknown_file (
+
+%10java.util.ArrayListi
+g
+0 2(3
+domain.Seller"
+basket"__id*8
+
+__unknown_file (
+
+%10java.util.ArrayList?=
+
+ù$ ù(5
+%12java.util.ArrayList"java.util.ArrayListn
+l
+
+ù  ù(7
+%13"java.util.ArrayList#<init>()V*8
+
+__unknown_file (
+
+%12java.util.ArrayListl
+j
+
+ú ù(8
+domain.Seller"	
+demands"__id*8
+
+__unknown_file (
+
+%12java.util.ArrayListS
+Q
+
+≤ ≤(
+domain.Seller"
+aktibo"__id* 
+
+__unknown_file (2"
+ ª(
+implicit returnB
+domain.Seller

@@ -1,0 +1,7 @@
+organization=1212-jon
+projectKey=jon
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.108089
+dashboardUrl=https://sonarcloud.io/dashboard?id=jon
+ceTaskId=AaDTcBuA3vunQq5rVJH0
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AaDTcBuA3vunQq5rVJH0

@@ -1,0 +1,77 @@
+
+jbusinessLogic.BLFacadeImplementation#getPublishedSales(Ljava/lang/String;Ljava/util/Date;)Ljava/util/List;A
+7src\main\java\businessLogic\BLFacadeImplementation.java] ]('"startingBlock*ﬂ
+startingBlock]' ](BÅ
+
+\ \(
+%3"
+__annotate*)
+
+__unknown_file (
+	WebMethod*6
+
+__unknown_file (
+
+descjava.lang.StringX
+V
+]/ ](3
+descjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%3É
+Ä
+\ \(
+%4"
+__annotate*)
+
+__unknown_file (
+	WebMethod*7
+
+__unknown_file (
+
+pubDatejava.util.DateY
+W
+]: ](A
+pubDatejava.util.Date"__annotation*"
+
+__unknown_file (
+
+%4*
+1*“
+1^ ^(m
+k
+^ ^(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerm
+k
+_ _($
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerO
+M
+_ _(F
+ridesjava.util.List"__id*"
+
+__unknown_file (
+""m
+k
+` `(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager"%
+a a(
+
+ridesjava.util.List:$
+]( ](4
+descjava.lang.String:%
+]5 ](A
+pubDatejava.util.DateB(&
+$businessLogic.BLFacadeImplementationH

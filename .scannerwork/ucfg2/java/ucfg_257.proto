@@ -1,0 +1,15 @@
+
+8domain.Transaction#getTransactionID()Ljava/lang/Integer;/
+%src\main\java\domain\Transaction.java   (#"1*¨
+1 /  (<r
+p
+ /  (<
+%0java.lang.Integer"__id*E
+
+__unknown_file ()*'
+domain.Transaction"
+transactionID"%
+ (  (=
+
+%0java.lang.IntegerB
+domain.TransactionH

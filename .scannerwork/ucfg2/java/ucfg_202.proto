@@ -1,0 +1,136 @@
+
+ybusinessLogic.BLFacadeImplementation#createDemand(Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;)Ldomain/Demand;C
+7src\main\java\businessLogic\BLFacadeImplementation.java” ”("startingBlock*¿
+startingBlock
+” ”(fÖ
+Ç
+
+“ “(
+%3"
+__annotate*)
+
+__unknown_file (
+	WebMethod*7
+
+__unknown_file (
+
+titlejava.lang.String[
+Y
+
+”& ”(+
+titlejava.lang.String"__annotation*"
+
+__unknown_file (
+
+%3ã
+à
+
+“ “(
+%4"
+__annotate*)
+
+__unknown_file (
+	WebMethod*=
+
+__unknown_file (!
+
+descriptionjava.lang.Stringa
+_
+
+”4 ”(?
+descriptionjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%4|
+z
+
+“ “(
+%5"
+__annotate*)
+
+__unknown_file (
+	WebMethod*/
+
+__unknown_file (
+
+maxPricefloatS
+Q
+
+”G ”(O
+maxPricefloat"__annotation*"
+
+__unknown_file (
+
+%5ç
+ä
+
+“ “(
+%6"
+__annotate*)
+
+__unknown_file (
+	WebMethod*?
+
+__unknown_file (#
+!
+claimantEmailjava.lang.Stringc
+a
+
+”X ”(e!
+claimantEmailjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%6*
+1*‘
+1
+‘ ‘(o
+m
+
+‘ ‘(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagero
+m
+
+’ ’(
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerL
+J
+
+’ ’(W
+ddomain.Demand"__id*"
+
+__unknown_file (
+""o
+m
+
+÷ ÷(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager""
+
+◊ ◊(
+
+ddomain.Demand:'
+
+” ”(,
+titlejava.lang.String:-
+
+”- ”(@
+descriptionjava.lang.String:
+
+”A ”(P
+maxPricefloat:/
+
+”Q ”(e!
+claimantEmailjava.lang.StringB(&
+$businessLogic.BLFacadeImplementationH

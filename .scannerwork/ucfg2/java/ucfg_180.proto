@@ -1,0 +1,57 @@
+
+^businessLogic.BLFacadeImplementation#getFile(Ljava/lang/String;)Ljava/awt/image/BufferedImage;A
+7src\main\java\businessLogic\BLFacadeImplementation.javah h( "startingBlock*‡
+startingBlockh  h(1†
+ƒ
+g g(
+%3"
+__annotate*)
+
+__unknown_file (
+	WebMethod*:
+
+__unknown_file (
+
+fileNamejava.lang.String\
+Z
+h( h(0
+fileNamejava.lang.String"__annotation*"
+
+__unknown_file (
+
+%3*
+1*è
+1i i(m
+k
+i i(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerm
+k
+j j($
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerZ
+X
+j j(7"
+bijava.awt.image.BufferedImage"__id*"
+
+__unknown_file (
+""m
+k
+k k(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager"0
+l l($
+"
+bijava.awt.image.BufferedImage:(
+h! h(0
+fileNamejava.lang.StringB(&
+$businessLogic.BLFacadeImplementationH

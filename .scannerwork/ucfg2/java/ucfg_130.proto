@@ -1,0 +1,23 @@
+
+%__sonar_lambda_12$gui.QuerySellersGUI0
+&src\main\java\gui\QuerySellersGUI.javaO' O(?"1*–
+1O, O(5q
+o
+O, O(5
+%80javax.swing.JFrame"__id*B
+
+__unknown_file (&*$
+gui.QuerySellersGUI"
+	thisFrameyw
+O, O(?
+%81void"java.awt.Window#dispose()V*7
+
+__unknown_file (
+
+%80javax.swing.JFrame2	dispose()"
+O, O(?
+
+%81void:+
+O' O((
+ejava.awt.event.ActionEventB
+gui.QuerySellersGUI

@@ -1,0 +1,175 @@
+
+"gui.ShowSaleGUI#%field_initializer,
+"src\main\java\gui\ShowSaleGUI.java ("1*À
+1
+__unknown_file (B@
+% (/
+%0javax.swing.JTextField"javax.swing.JTextFieldp
+n
+! (1
+%1" javax.swing.JTextField#<init>()V*:
+
+__unknown_file (
+
+%0javax.swing.JTextFieldq
+o
+ (2!
+gui.ShowSaleGUI"
+
+fieldTitle"__id*:
+
+__unknown_file (
+
+%0javax.swing.JTextFieldB@
++ (5
+%2javax.swing.JTextField"javax.swing.JTextFieldp
+n
+' (7
+%3" javax.swing.JTextField#<init>()V*:
+
+__unknown_file (
+
+%2javax.swing.JTextFieldw
+u
+ (8'
+gui.ShowSaleGUI"
+fieldDescription"__id*:
+
+__unknown_file (
+
+%2javax.swing.JTextFieldB@
+% (/
+%4javax.swing.JTextField"javax.swing.JTextFieldp
+n
+! (1
+%5" javax.swing.JTextField#<init>()V*:
+
+__unknown_file (
+
+%4javax.swing.JTextFieldq
+o
+ (2!
+gui.ShowSaleGUI"
+
+fieldPrice"__id*:
+
+__unknown_file (
+
+%4javax.swing.JTextField:8
+" ((
+%6javax.swing.JLabel"javax.swing.JLabelh
+f
+ (*
+%7"javax.swing.JLabel#<init>()V*6
+
+__unknown_file (
+
+%6javax.swing.JLabeln
+l
+ (+"
+gui.ShowSaleGUI"
+labelStatus"__id*6
+
+__unknown_file (
+
+%6javax.swing.JLabel:8
+" ((
+%8javax.swing.JLabel"javax.swing.JLabelh
+f
+ (*
+%9"javax.swing.JLabel#<init>()V*6
+
+__unknown_file (
+
+%8javax.swing.JLabeln
+l
+ (+"
+gui.ShowSaleGUI"
+statusField"__id*6
+
+__unknown_file (
+
+%8javax.swing.JLabel;9
+" ((
+%10javax.swing.JLabel"javax.swing.JLabel¡
+ž
+ (n
+%11".javax.swing.JLabel#<init>(Ljava/lang/String;)V*7
+
+__unknown_file (
+
+%10javax.swing.JLabel*"
+
+__unknown_file (
+""o
+m
+ (o"
+gui.ShowSaleGUI"
+jLabelTitle"__id*7
+
+__unknown_file (
+
+%10javax.swing.JLabel;9
+( (.
+%12javax.swing.JLabel"javax.swing.JLabel¡
+ž
+$ (|
+%13".javax.swing.JLabel#<init>(Ljava/lang/String;)V*7
+
+__unknown_file (
+
+%12javax.swing.JLabel*"
+
+__unknown_file (
+""u
+s
+ (}(
+gui.ShowSaleGUI"
+jLabelDescription"__id*7
+
+__unknown_file (
+
+%12javax.swing.JLabel;9
+* (0
+%14javax.swing.JLabel"javax.swing.JLabel¡
+ž
+& (y
+%15".javax.swing.JLabel#<init>(Ljava/lang/String;)V*7
+
+__unknown_file (
+
+%14javax.swing.JLabel*"
+
+__unknown_file (
+""w
+u
+ (z*
+gui.ShowSaleGUI"
+jLabelProductStatus"__id*7
+
+__unknown_file (
+
+%14javax.swing.JLabel;9
+" ((
+%16javax.swing.JLabel"javax.swing.JLabel¡
+ž
+ (p
+%17".javax.swing.JLabel#<init>(Ljava/lang/String;)V*7
+
+__unknown_file (
+
+%16javax.swing.JLabel*"
+
+__unknown_file (
+""o
+m
+ (q"
+gui.ShowSaleGUI"
+jLabelPrice"__id*7
+
+__unknown_file (
+
+%16javax.swing.JLabel"
+ ‚(
+implicit returnB
+gui.ShowSaleGUI

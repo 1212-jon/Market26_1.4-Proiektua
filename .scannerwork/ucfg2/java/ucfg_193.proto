@@ -1,0 +1,96 @@
+
+FbusinessLogic.BLFacadeImplementation#addToBasket(Ljava/lang/String;I)ZC
+7src\main\java\businessLogic\BLFacadeImplementation.javaú ú("startingBlock*ä
+startingBlock
+ú ú(AŠ
+‡
+
+ù ù(
+%3"
+__annotate*)
+
+__unknown_file (
+	WebMethod*<
+
+__unknown_file ( 
+
+
+buyerEmailjava.lang.String`
+^
+
+ú& ú(0
+
+buyerEmailjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%3|
+z
+
+ù ù(
+%4"
+__annotate*)
+
+__unknown_file (
+	WebMethod*/
+
+__unknown_file (
+
+
+saleNumberintS
+Q
+
+ú6 ú(@
+
+saleNumberint"__annotation*"
+
+__unknown_file (
+
+%4*
+1*Ì
+1
+û û(o
+m
+
+û û(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagero
+m
+
+ü ü(
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerH
+F
+
+ü ü(D
+resboolean"__id*"
+
+__unknown_file (
+""o
+m
+
+ý ý(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager"
+
+þ þ(
+
+resboolean:,
+
+ú ú(1
+
+buyerEmailjava.lang.String:
+
+ú2 ú(@
+
+saleNumberintB(&
+$businessLogic.BLFacadeImplementationHX

@@ -1,0 +1,36 @@
+
+domain.Sale#isSold()Z(
+src\main\java\domain\Sale.javaW W("3*è
+2X X(_
+]
+X X(
+%1domain.Seller"__id*6
+
+__unknown_file (*
+domain.Sale"
+buyerq
+o
+X X(!
+%2boolean"	__compare*
+X X(
+!=*!
+X X(
+
+%1domain.Seller*
+X X(!
+""*
+1*w
+3X X(X
+V
+X X(
+%0boolean"__id*5
+
+__unknown_file (*
+domain.Sale"
+sold*
+1
+2*!
+1X X(""
+X X("
+""B
+domain.SaleHX

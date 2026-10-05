@@ -1,0 +1,41 @@
+
+DbusinessLogic.BLFacadeImplementation#getAllDemands()Ljava/util/List;C
+7src\main\java\businessLogic\BLFacadeImplementation.javaï ï(%"1*â
+1
+ð ð(o
+m
+
+ð ð(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagero
+m
+
+ñ ñ((
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerS
+Q
+
+ñ ñ(9
+demandsjava.util.List"__id*"
+
+__unknown_file (
+""o
+m
+
+ò ò(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager")
+
+ó ó(
+
+demandsjava.util.ListB(&
+$businessLogic.BLFacadeImplementationH

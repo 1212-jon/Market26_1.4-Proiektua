@@ -1,0 +1,60 @@
+
+domain.Reclamation#hashCode()I/
+%src\main\java\domain\Reclamation.javai i("4*\
+2jD j(EF
+D
+jD j(E	
+%2int"__id*'
+
+__unknown_file (
+	
+%4int*
+1*Ï
+3j% j(6v
+t
+j% j(6
+%5java.lang.Integer"__id*I
+
+__unknown_file (-*+
+domain.Reclamation"
+reclamationNumberyw
+j% j(A	
+%3int"java.lang.Integer#hashCode()I*5
+
+__unknown_file (
+
+%5java.lang.Integer2
+hashCode()F
+D
+j% j(A	
+%2int"__id*'
+
+__unknown_file (
+	
+%3int*
+1*Œ
+4j	 j(v
+t
+j	 j(
+%0java.lang.Integer"__id*I
+
+__unknown_file (-*+
+domain.Reclamation"
+reclamationNumberu
+s
+j	 j("
+%1boolean"	__compare*
+j j(
+!=*%
+j	 j(
+
+%0java.lang.Integer*
+j j("
+""*
+2
+3*&
+1j j(F"
+j j(F
+	
+%2intB
+domain.ReclamationHX

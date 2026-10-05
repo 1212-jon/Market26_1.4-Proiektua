@@ -1,0 +1,30 @@
+
+domain.Sale#hashCode()I*
+src\main\java\domain\Sale.java† †("1*Ë
+1
+‡ ‡(j
+h
+
+‡# ‡(-
+%0java.lang.Integer"__id*;
+
+__unknown_file (*
+domain.Sale"
+
+saleNumber²
+¯
+
+‡ ‡(.	
+%1int",java.util.Objects#hash([Ljava/lang/Object;)I*1
+
+__unknown_file ("
+java.util.Objects*5
+
+__unknown_file (
+
+%0java.lang.Integer"
+
+‡ ‡(/
+	
+%1intB
+domain.SaleHX

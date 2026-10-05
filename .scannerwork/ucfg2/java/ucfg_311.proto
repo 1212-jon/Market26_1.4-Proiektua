@@ -1,0 +1,71 @@
+
+/domain.Reclamation#toString()Ljava/lang/String;/
+%src\main\java\domain\Reclamation.java\ \("1*Î
+1]	 ](v
+t
+] ](.
+%0java.lang.Integer"__id*I
+
+__unknown_file (-*+
+domain.Reclamation"
+reclamationNumberv
+t
+]	 ](.
+%1java.lang.String"__concat*
+]	 ](
+Erreklamazioa #*%
+] ](.
+
+%0java.lang.Integerh
+f
+]	 ](5
+%2java.lang.String"__concat*$
+]	 ](.
+
+%1java.lang.String*
+]1 ](5
+ [j
+h
+]8 ](>
+%3java.lang.String"__id*>
+
+__unknown_file ("* 
+domain.Reclamation"
+egoeraz
+x
+]	 ](>
+%4java.lang.String"__concat*$
+]	 ](5
+
+%2java.lang.String*$
+]8 ](>
+
+%3java.lang.Stringi
+g
+]	 ](F
+%5java.lang.String"__concat*$
+]	 ](>
+
+%4java.lang.String*
+]A ](F
+]: p
+n
+]I ](U
+%6java.lang.String"__id*D
+
+__unknown_file ((*&
+domain.Reclamation"
+deskribapenaz
+x
+]	 ](U
+%7java.lang.String"__concat*$
+]	 ](F
+
+%5java.lang.String*$
+]I ](U
+
+%6java.lang.String"$
+] ](V
+
+%7java.lang.StringB
+domain.ReclamationH

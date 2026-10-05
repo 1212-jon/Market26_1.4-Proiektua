@@ -1,0 +1,70 @@
+
+CbusinessLogic.BLFacadeImplementation#buyBasket(Ljava/lang/String;)ZC
+7src\main\java\businessLogic\BLFacadeImplementation.java‰ ‰("startingBlock*‘
+startingBlock
+‰ ‰(/Š
+‡
+
+ˆ ˆ(
+%3"
+__annotate*)
+
+__unknown_file (
+	WebMethod*<
+
+__unknown_file ( 
+
+
+buyerEmailjava.lang.String`
+^
+
+‰$ ‰(.
+
+buyerEmailjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%3*
+1*Ì
+1
+Š Š(o
+m
+
+Š Š(
+%0"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagero
+m
+
+‹ ‹(
+%1"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerH
+F
+
+‹ ‹(6
+resboolean"__id*"
+
+__unknown_file (
+""o
+m
+
+Œ Œ(
+%2"__id*S
+
+__unknown_file (7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager"
+
+ (
+
+resboolean:,
+
+‰ ‰(.
+
+buyerEmailjava.lang.StringB(&
+$businessLogic.BLFacadeImplementationHX

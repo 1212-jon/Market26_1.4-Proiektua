@@ -1,0 +1,75 @@
+
+$gui.ProfilaGUI$4#isCellEditable(II)Z-
+!src\main\java\gui\ProfilaGUI.javaÛ% Û(3"startingBlock*≈
+startingBlock
+Û3 Û(H~
+|
+
+Û Û(
+%1"
+__annotate*2
+
+__unknown_file (
+java.lang.Override*(
+
+__unknown_file (
+
+
+rowintL
+J
+
+Û8 Û(;
+
+rowint"__annotation*"
+
+__unknown_file (
+
+%1Å
+
+
+Û Û(
+%2"
+__annotate*2
+
+__unknown_file (
+java.lang.Override*+
+
+__unknown_file (
+
+columnintO
+M
+
+ÛA Û(G
+columnint"__annotation*"
+
+__unknown_file (
+
+%2*
+1*°
+1
+ÛR Û(Xq
+o
+
+ÛR Û(]
+%0boolean"	__compare*
+
+ÛY Û([
+==*
+
+ÛR Û(X
+
+columnint*
+
+Û\ Û(]2"
+
+ÛK Û(^
+
+%0boolean:
+
+Û4 Û(<
+
+rowint:
+
+Û= Û(G
+columnintB
+gui.ProfilaGUI$4HX

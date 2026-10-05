@@ -1,0 +1,169 @@
+
+*gui.Utils#getStatus()Ljava/util/ArrayList;&
+src\main\java\gui\Utils.java! (*"6*é
+2  (&¹
+¶
+  ([
+%8java.util.List"<java.util.Arrays#asList([Ljava/lang/Object;)Ljava/util/List;*0
+
+__unknown_file ("
+java.util.Arrays*&
+
+__unknown_file (
+
+Berria*'
+
+__unknown_file (	
+Oso Ona*&
+
+__unknown_file (
+
+Egokia*+
+
+__unknown_file (
+Oso zaharra<:
+ (
+%9java.util.ArrayList"java.util.ArrayList¶
+³
+
+ (\
+%10"3java.util.ArrayList#<init>(Ljava/util/Collection;)V*7
+
+__unknown_file (
+
+%9java.util.ArrayList*2
+
+__unknown_file (
+
+%8java.util.List"'
+ (]
+
+%9java.util.ArrayList*â
+3 ( Â¿
+ (-
+%7boolean",java.lang.String#equals(Ljava/lang/Object;)Z*"
+
+__unknown_file (
+eu*6
+
+__unknown_file (
+
+langjava.lang.String2equals(Ljava/lang/Object;)*
+1
+2*ã
+4 (ÃÀ
+ (
+%6boolean",java.lang.String#equals(Ljava/lang/Object;)Z*#
+
+__unknown_file (
+eus*6
+
+__unknown_file (
+
+langjava.lang.String2equals(Ljava/lang/Object;)*
+2
+3*ð
+5  (&Á
+¾
+  (c
+%3java.util.List"<java.util.Arrays#asList([Ljava/lang/Object;)Ljava/util/List;*0
+
+__unknown_file ("
+java.util.Arrays*%
+
+__unknown_file (	
+Nuevo*)
+
+__unknown_file (
+	Muy Bueno*)
+
+__unknown_file (
+	Aceptable*/
+
+__unknown_file (
+Lo ha dado todo<:
+ (
+%4java.util.ArrayList"java.util.ArrayListµ
+²
+
+ (d
+%5"3java.util.ArrayList#<init>(Ljava/util/Collection;)V*7
+
+__unknown_file (
+
+%4java.util.ArrayList*2
+
+__unknown_file (
+
+%3java.util.List"'
+ (e
+
+%4java.util.ArrayList*ð
+6	 	(ˆ
+…
+	 	(#
+%0java.util.Locale"/java.util.Locale#getDefault()Ljava/util/Locale;*0
+
+__unknown_file ("
+java.util.Localeœ™
+	 	(1
+%1java.lang.String"0java.util.Locale#getLanguage()Ljava/lang/String;*4
+
+__unknown_file (
+
+%0java.util.Locale2getLanguage()b
+`
+	 	(2
+langjava.lang.String"__id*4
+
+__unknown_file (
+
+%1java.lang.StringÂ¿
+ (
+%2boolean",java.lang.String#equals(Ljava/lang/Object;)Z*"
+
+__unknown_file (
+es*6
+
+__unknown_file (
+
+langjava.lang.String2equals(Ljava/lang/Object;)*
+4
+5*ï
+1 (%»
+¸
+ ([
+%11java.util.List"<java.util.Arrays#asList([Ljava/lang/Object;)Ljava/util/List;*0
+
+__unknown_file ("
+java.util.Arrays*#
+
+__unknown_file (
+New*)
+
+__unknown_file (
+	Very Good**
+
+__unknown_file (
+
+Acceptable*)
+
+__unknown_file (
+	Very Used=;
+ (
+%12java.util.ArrayList"java.util.ArrayList¸
+µ
+	 (\
+%13"3java.util.ArrayList#<init>(Ljava/util/Collection;)V*8
+
+__unknown_file (
+
+%12java.util.ArrayList*3
+
+__unknown_file (
+
+%11java.util.List"(
+ (]
+
+%12java.util.ArrayListB"
+	gui.UtilsH
