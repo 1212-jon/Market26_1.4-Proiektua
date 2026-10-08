@@ -25,6 +25,7 @@ public class CreateReclamationBlackBoxBDTest {
     public static void tearDownClass() {
         sut.close();
     }
+    
 
     /**@Test
     public void testCreateReclamationSuccessBD() {
