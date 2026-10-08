@@ -43,7 +43,7 @@ public class RemoveSaleBlackBoxMockTest {
         sut= new DataAccess(db);
 	}
 	
-	/**@Test 
+	@Test 
 	public void removeSaleSuccesTestMock() {
 		String email="jon@gmail.com";
 		String izena="jon";
@@ -67,6 +67,6 @@ public class RemoveSaleBlackBoxMockTest {
 		assertTrue(emaitza);
 		verify(db, times(1)).remove(sale);
 		verify(et, times(1)).commit();
-	}*/
+	}
 
 }

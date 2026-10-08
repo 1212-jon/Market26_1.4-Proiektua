@@ -66,7 +66,7 @@ public class RemoveSaleWhiteBoxBDTest {
 		}
 	}
 
-	/**@Test
+	@Test
 	public void emailNull() {
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
@@ -166,7 +166,7 @@ public class RemoveSaleWhiteBoxBDTest {
 		
 		Sale dbSale = db.find(Sale.class, testSaleNumber);
 		assertNull(dbSale);
-	}*/
+	}
 	
 	
 }

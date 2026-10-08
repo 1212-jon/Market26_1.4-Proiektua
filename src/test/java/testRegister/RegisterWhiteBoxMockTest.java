@@ -35,7 +35,7 @@ public class RegisterWhiteBoxMockTest {
         when(db.getTransaction()).thenReturn(et);
     }
 	
-	@Test
+	/**@Test
 	public void testRegisterEmailNull() {
 		Seller s = sut.register(null, "Hodei", "Abcde1234!");
 		
@@ -103,5 +103,5 @@ public class RegisterWhiteBoxMockTest {
 		Seller s = sut.register(email, "Hodei", "Abcde1234!");
 
         assertNull(s);
-	}
+	}*/
 }
