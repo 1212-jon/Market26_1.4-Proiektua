@@ -32,7 +32,7 @@ public class RemoveSaleWhiteBoxBDTest {
 		sut = new DataAccess(db); 
 	}
 	
-	@After
+	/**@After
 	public void tearDown() {
 		if (db != null && db.isOpen()) {
 			try {
@@ -66,7 +66,7 @@ public class RemoveSaleWhiteBoxBDTest {
 		}
 	}
 
-	/**@Test
+	@Test
 	public void emailNull() {
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
@@ -173,7 +173,7 @@ public class RemoveSaleWhiteBoxBDTest {
         Sale sale = new Sale();
         sale.setSaleNumber(testSaleNumber);
         
-        // Ez ireki transakziorik eskuz hemen
+        db.getTransaction().begin();
         boolean emaitza = sut.removeSale(testEmail, sale);
         assertFalse(emaitza);
     }*/
