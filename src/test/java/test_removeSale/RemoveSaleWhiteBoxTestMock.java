@@ -46,7 +46,7 @@ public class RemoveSaleWhiteBoxTestMock {
 	}
 	
 
-	/**@Test
+	@Test
 	public void saleNull(){
 		String email = "jon@gmail.com";
 		
@@ -157,5 +157,5 @@ public class RemoveSaleWhiteBoxTestMock {
 		
 		assertFalse(emaitza);
 		verify(et, times(1)).rollback(); 
-	}*/
+	}
 }
