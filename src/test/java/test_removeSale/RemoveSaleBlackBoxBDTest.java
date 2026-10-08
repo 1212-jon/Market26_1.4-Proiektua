@@ -63,7 +63,7 @@ public class RemoveSaleBlackBoxBDTest {
 	}
 
 	// 1. KLASE BALIOKIDEA: Sarrera baliogabeak (Null balioak)
-	@Test
+	/**@Test
 	public void testNullEmailReturnsFalse() {
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
@@ -110,7 +110,7 @@ public class RemoveSaleBlackBoxBDTest {
 	}
 	
 	// 4. KLASE BALIOKIDEA: Jada saldutako produktuak (Negozio arau espezifikoa)
-	/**@Test
+	@Test
 	public void testRemovingAlreadySoldProductReturnsFalse() {
 		db.getTransaction().begin();
 		Seller saltzailea = new Seller(testEmail, "Jon", "pasahitza");

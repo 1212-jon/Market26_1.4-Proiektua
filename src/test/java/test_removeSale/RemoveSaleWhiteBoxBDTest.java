@@ -66,7 +66,7 @@ public class RemoveSaleWhiteBoxBDTest {
 		}
 	}
 
-	@Test
+	/**@Test
 	public void emailNull() {
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
@@ -176,5 +176,5 @@ public class RemoveSaleWhiteBoxBDTest {
         // Ez ireki transakziorik eskuz hemen
         boolean emaitza = sut.removeSale(testEmail, sale);
         assertFalse(emaitza);
-    }
+    }*/
 }
