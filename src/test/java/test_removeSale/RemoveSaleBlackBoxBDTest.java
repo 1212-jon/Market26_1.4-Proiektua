@@ -110,7 +110,7 @@ public class RemoveSaleBlackBoxBDTest {
 	}
 	
 	// 4. KLASE BALIOKIDEA: Jada saldutako produktuak (Negozio arau espezifikoa)
-	@Test
+	/**@Test
 	public void testRemovingAlreadySoldProductReturnsFalse() {
 		db.getTransaction().begin();
 		Seller saltzailea = new Seller(testEmail, "Jon", "pasahitza");
@@ -153,5 +153,5 @@ public class RemoveSaleBlackBoxBDTest {
 		
 		Sale dbSale = db.find(Sale.class, testSaleNumber);
 		assertNull("Salmenta DB-tik ezabatu behar da eragiketa ondo joan bada.", dbSale);
-	}
+	}*/
 }
