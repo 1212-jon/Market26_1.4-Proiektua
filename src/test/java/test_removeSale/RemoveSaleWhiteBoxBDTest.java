@@ -169,12 +169,17 @@ public class RemoveSaleWhiteBoxBDTest {
 	}
 	
 	@Test
-    public void exceptionThrown() {
-        Sale sale = new Sale();
-        sale.setSaleNumber(testSaleNumber);
-        
-        db.getTransaction().begin();
-        boolean emaitza = sut.removeSale(testEmail, sale);
-        assertFalse(emaitza);
-    }
+	public void exceptionThrown() {
+	    Sale sale = new Sale();
+	    sale.setSaleNumber(testSaleNumber);
+	    
+	    // Aktibo badago lehenengo rollback egin dugu
+	    if (db.getTransaction().isActive()) {
+	        db.getTransaction().rollback();
+	    }
+	    
+	    db.getTransaction().begin();
+	    boolean emaitza = sut.removeSale(testEmail, sale);
+	    assertFalse(emaitza);
+	}
 }
