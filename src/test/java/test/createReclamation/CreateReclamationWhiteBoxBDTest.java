@@ -26,7 +26,7 @@ public class CreateReclamationWhiteBoxBDTest {
         sut.close();
     }
 
-    /**@Test
+    @Test
     public void testCreateReclamationNullDescriptionBD() {
         // Path 1: deskribapena null denean -> false bueltatu behar du
         boolean res = sut.createReclamation(100, null, "erosle@gmail.com");
@@ -64,5 +64,5 @@ public class CreateReclamationWhiteBoxBDTest {
 
         // Garbiketa
         sut.removeReclamationTestData("saltzaileWB@gmail.com", "erosleWB@gmail.com", 8888);
-    }*/
+    }
 }
