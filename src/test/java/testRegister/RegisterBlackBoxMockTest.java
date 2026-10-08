@@ -37,7 +37,7 @@ public class RegisterBlackBoxMockTest {
     }
 
 	
-	/**@Test
+	@Test
 	public void testRegisterSuccessMock() {
 		
 		String email = "hodei.mock@gmail.com";
@@ -73,6 +73,6 @@ public class RegisterBlackBoxMockTest {
 		verify(db,never()).persist(any(Seller.class));
 		verify(et, times(1)).commit();
 		
-	}*/
+	}
 
 }
