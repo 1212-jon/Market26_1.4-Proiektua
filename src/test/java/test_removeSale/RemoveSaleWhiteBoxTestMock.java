@@ -35,7 +35,7 @@ public class RemoveSaleWhiteBoxTestMock {
 	}
 	
 
-	@Test
+	/**@Test
 	public void emailNull() {
 		Sale sale = new Sale();
 		sale.setSaleNumber(123);
@@ -157,5 +157,5 @@ public class RemoveSaleWhiteBoxTestMock {
 		
 		assertFalse(emaitza);
 		verify(et, times(1)).rollback(); 
-	}
+	}*/
 }

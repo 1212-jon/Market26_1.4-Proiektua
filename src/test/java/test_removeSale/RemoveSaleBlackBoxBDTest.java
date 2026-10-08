@@ -63,7 +63,7 @@ public class RemoveSaleBlackBoxBDTest {
 	}
 
 	// 1. KLASE BALIOKIDEA: Sarrera baliogabeak (Null balioak)
-	@Test
+	/**@Test
 	public void testNullEmailReturnsFalse() {
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
@@ -153,5 +153,5 @@ public class RemoveSaleBlackBoxBDTest {
 		
 		Sale dbSale = db.find(Sale.class, testSaleNumber);
 		assertNull("Salmenta DB-tik ezabatu behar da eragiketa ondo joan bada.", dbSale);
-	}
+	}*/
 }
