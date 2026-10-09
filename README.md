@@ -1,4 +1,4 @@
-MARKET26 (v1.4) - PROIEKTUA
+MARKET26 (v1.2.0) - PROIEKTUA
 ===========================
 
 Egileak: 
