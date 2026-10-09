@@ -26,7 +26,7 @@ public class CreateReclamationBlackBoxBDTest {
         sut.close();
     }
     
-   /** @Test
+   @Test
     public void testCreateReclamationSuccessBD() {
         // 1. Datuak prestatu DBan
         Seller saltzaile = new Seller("saltzaileBD@gmail.com", "Saltzaile Test", "123");
@@ -46,5 +46,5 @@ public class CreateReclamationBlackBoxBDTest {
 
         // 4. Garbiketa
         sut.removeReclamationTestData("saltzaileBD@gmail.com", "erosleBD@gmail.com", 9999);
-    }*/
+    }
 }
