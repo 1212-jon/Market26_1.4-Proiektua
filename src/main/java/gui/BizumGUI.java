@@ -9,26 +9,27 @@ import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
 
 public class BizumGUI extends JFrame {
+
     private float kopurua;
     private final Seller user;
     private JFrame previousFrame;
     private boolean isSarrera;
-    
+
     public Seller getUser() {  
         return user; 
     } 
 
     public BizumGUI(float kopurua, Seller user, JFrame previousFrame, boolean isSarrera) {
-    	setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    	ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/Logo.png"));
-    	setIconImage(icon.getImage());
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/Logo.png"));
+        setIconImage(icon.getImage());
         this.kopurua = kopurua;
         this.user = user;
         this.previousFrame = previousFrame;
         this.isSarrera = isSarrera;
 
         setTitle(ResourceBundle.getBundle("Etiquetas").getString("BizumGUI.Title"));
-        setSize(400, 300); // Pixka bat handitu dugu botoi berria sartzeko
+        setSize(400, 300);
         getContentPane().setLayout(null);
         this.getContentPane().setBackground(Color.WHITE);
 
@@ -60,36 +61,41 @@ public class BizumGUI extends JFrame {
             // 1. Datu basean saldoa aldatu
             facade.updateSaldo(user.getEmail(), saldoBerria);
             
-            // 2. GAKOA: MainGUI-ko estatikoa berritu (Saioa hasi bezala egiteko)
+            // 2. GAKOA: MainGUI-ko estatikoa berritu
             MainGUI.saioaIndarrezBerritu();
             
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("Etiquetas").getString("BizumGUI.Done"));
-            
-            // 3. Aurreko leihora joan eta freskatu
-            this.dispose();
-            if (previousFrame != null) {
-                previousFrame.setVisible(true);
-                if (previousFrame instanceof TransakzioakGUI) {
-                    ((TransakzioakGUI) previousFrame).freskatuTaula();
-                }
-            }
+
+            // 3. Kode duplikatua saihesteko metodo laguntzailea deitu
+            itxiEtaItzuli();
         });
         getContentPane().add(btnOnartu);
 
-        // --- ITXI BOTOIA (Zuk eskatutakoa) ---
+        // --- ITXI BOTOIA ---
         JButton btnItxi = new JButton(ResourceBundle.getBundle("Etiquetas").getString("Close"));
         btnItxi.setFocusable(false);
         btnItxi.setBounds(50, 170, 280, 40);
         btnItxi.setBackground(Color.LIGHT_GRAY);
         
         btnItxi.addActionListener(e -> {
-            this.dispose(); // Leiho hau itxi
-            if (previousFrame != null) {
-                previousFrame.setVisible(true); // TrantsakzioakGUI erakutsi
-            }
+            itxiEtaItzuli();
         });
         getContentPane().add(btnItxi);
 
         this.setLocationRelativeTo(null);
+    }
+
+    /**
+     * Leihoa itxi eta aurreko pantailara itzultzeko logika berrerabilgarria, 
+     * "Duplicate code" arazoa ekiditeko sortua.
+     */
+    private void itxiEtaItzuli() {
+        this.dispose();
+        if (previousFrame != null) {
+            previousFrame.setVisible(true);
+            if (previousFrame instanceof TransakzioakGUI) {
+                ((TransakzioakGUI) previousFrame).freskatuTaula();
+            }
+        }
     }
 }
