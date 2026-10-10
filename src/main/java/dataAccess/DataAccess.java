@@ -367,41 +367,41 @@ public class DataAccess  {
 	 *         {@code false} parametroetakoren bat {@code null} bada, salmenta zein eroslea 
 	 *         aurkitzen ez badira, edo datu-baseko operazioan akatsen bat gertatzen bada.
 	 */
-	
+		
 	public boolean createReclamation(int saleNumber, String deskribapena, String buyerEmail) {
 		if (deskribapena == null || buyerEmail == null) return false;
 		db.getTransaction().begin();
 		try {
-			// 1. Bilatu datu-basean beharrezko objektuak
-			Sale s = db.find(Sale.class, saleNumber);
-			Seller eroslea = db.find(Seller.class, buyerEmail);
-
-			if (s != null && eroslea != null) {
-				Seller saltzailea = s.getSeller();
-
-				// 2. Erreklamazioa sortu (4 parametro: deskribapena, produktua, saltzailea, eroslea)
-				domain.Reclamation r = new domain.Reclamation(deskribapena, s, saltzailea, eroslea);
-
-				// 3. Loturak egin objektuen artean
-				s.setReclamation(r); // Produktuak badaki erreklamazio bat duela
-				saltzailea.addErreklamazioa(r); // Saltzaileak badaki erreklamazio bat jaso duela
-
-				// 4. Gorde erreklamazioa datu-basean
-				db.persist(r);
-
-				db.getTransaction().commit();
-				db.refresh(saltzailea);
-				return true;
-			}
-
-			if (db.getTransaction().isActive()) db.getTransaction().rollback();
-			return false;
-
+			return exekutatuErreklamazioa(saleNumber, deskribapena, buyerEmail);
 		} catch (Exception e) {
 			if (db.getTransaction().isActive()) db.getTransaction().rollback();
 			e.printStackTrace();
 			return false;
 		}
+	}
+	private boolean exekutatuErreklamazioa(int saleNumber, String deskribapena, String buyerEmail) {
+		// 1. Bilatu datu-basean beharrezko objektuak
+		Sale s = db.find(Sale.class, saleNumber);
+		Seller eroslea = db.find(Seller.class, buyerEmail);
+		if (s != null && eroslea != null) {
+			Seller saltzailea = sortuEtaLotuErreklamazioa(deskribapena, s, eroslea);
+			db.getTransaction().commit();
+			db.refresh(saltzailea);
+			return true;
+		}
+		if (db.getTransaction().isActive()) db.getTransaction().rollback();
+		return false;
+	}
+	private Seller sortuEtaLotuErreklamazioa(String deskribapena, Sale s, Seller eroslea) {
+		Seller saltzailea = s.getSeller();
+		// 2. Erreklamazioa sortu (4 parametro: deskribapena, produktua, saltzailea, eroslea)
+		domain.Reclamation r = new domain.Reclamation(deskribapena, s, saltzailea, eroslea);
+		// 3. Loturak egin objektuen artean
+		s.setReclamation(r); // Produktuak badaki erreklamazio bat duela
+		saltzailea.addErreklamazioa(r); // Saltzaileak badaki erreklamazio bat jaso duela
+		// 4. Gorde erreklamazioa datu-basean
+		db.persist(r);
+		return saltzailea;
 	}
 	
 	
@@ -488,17 +488,25 @@ public class DataAccess  {
 	        Seller buyer = db.find(Seller.class, buyerEmail);
 	        Sale s = db.find(Sale.class, saleNumber);
 
-	        if (buyer != null && s != null && !s.isSold()) {
-	            buyer.addBasket(s); // Orain Seller-ek mugarik gabe gehitzen du
-	            db.getTransaction().commit();
+	        if (gehituSaskiraLogika(buyer, s)) {
 	            return true;
 	        }
+	        
 	        if (db.getTransaction().isActive()) db.getTransaction().rollback();
 	        return false;
 	    } catch (Exception e) {
 	        if (db.getTransaction().isActive()) db.getTransaction().rollback();
 	        return false;
 	    }
+	}
+	
+	private boolean gehituSaskiraLogika(Seller buyer, Sale s) {
+	    if (buyer != null && s != null && !s.isSold()) {
+	        buyer.addBasket(s);
+	        db.getTransaction().commit();
+	        return true;
+	    }
+	    return false;
 	}
 
     /**
