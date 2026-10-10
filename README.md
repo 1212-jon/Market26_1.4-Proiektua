@@ -8,6 +8,7 @@ Egileak:
       - Enara Anitua Goitiandia (enaratxu22)
       
 GitHub: https://github.com/1212-jon/Market26_1.4-Proiektua
+
 SonnarCloud: https://sonarcloud.io/summary/overall?id=1212-jon_market&branch=main
 
 DESKRIBAPENA:
