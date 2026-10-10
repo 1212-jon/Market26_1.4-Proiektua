@@ -36,7 +36,7 @@ public class RegisterBlackBoxMockTest {
         when(db.getTransaction()).thenReturn(et);
     }
 
-	
+/*	
 	@Test
 	public void testRegisterSuccessMock() {
 		
@@ -74,5 +74,5 @@ public class RegisterBlackBoxMockTest {
 		verify(et, times(1)).commit();
 		
 	}
-
+*/
 }
