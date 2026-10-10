@@ -37,6 +37,7 @@ public class RegisterBlackBoxMockTest {
     }
 
 	
+    
 	@Test
 	public void testRegisterSuccessMock() {
 		

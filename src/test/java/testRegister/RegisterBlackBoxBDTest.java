@@ -36,6 +36,7 @@ public class RegisterBlackBoxBDTest {
         }
     }
 
+    
    @Test
     public void testRegisterSuccessBD() {
         Seller s = sut.register("jonsalegi@gmail.com", "Hodei", "EnaraANª123");

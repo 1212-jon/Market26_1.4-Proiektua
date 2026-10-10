@@ -37,6 +37,7 @@ public class RegisterWhiteBoxBDTest {
         }
     }
 
+    
   @Test
     public void testRegisterEmailNull() {
         Seller s = sut.register(null, "Enara", "Abcde1234!");
