@@ -35,7 +35,7 @@ public class CreateReclamationWhiteBoxMockTest {
         when(db.getTransaction()).thenReturn(et);
     }
 
- /** @Test
+ @Test
     public void testCreateReclamationNullDescriptionMock() {
         // Path 1: deskribapena null denean
         boolean res = sut.createReclamation(100, null, "erosle@gmail.com");
@@ -92,7 +92,8 @@ public class CreateReclamationWhiteBoxMockTest {
 
         assertFalse(result);
         Mockito.verify(et, Mockito.times(1)).rollback();
-    }*/
+    }
+    
     
     
 }

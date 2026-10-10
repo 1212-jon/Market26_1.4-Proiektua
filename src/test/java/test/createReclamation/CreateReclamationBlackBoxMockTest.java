@@ -33,8 +33,9 @@ public class CreateReclamationBlackBoxMockTest {
         sut = new DataAccess(db);
         when(db.getTransaction()).thenReturn(et);
     }
+    
 
- /**@Test
+ @Test
     public void testCreateReclamationSuccessMock() {
         // Datuak simulatu
         int saleNumber = 100;
@@ -58,7 +59,7 @@ public class CreateReclamationBlackBoxMockTest {
         assertTrue("Erreklamazioak arrakastatsua izan behar luke", result);
         verify(db, times(1)).persist(any(Reclamation.class));
         verify(et, times(1)).commit();
-    }*/
+    }
  
  
  
