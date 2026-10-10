@@ -26,7 +26,6 @@ public class RemoveSaleWhiteBoxBDTest {
 	
 	@Before
 	public void setUp() {
-		// KONTUZ: Jarri hemen zure benetako persistence unit izena!
 		emf = Persistence.createEntityManagerFactory("objectdb:test.odb"); 
 		db = emf.createEntityManager();
 		sut = new DataAccess(db); 
@@ -36,13 +35,10 @@ public class RemoveSaleWhiteBoxBDTest {
 	public void tearDown() {
 		if (db != null && db.isOpen()) {
 			try {
-				// 1. ZUZENKETA: Aurreko testak (adibidez wrongSeller) transakzioa 
-				// zintzilik utzi badu, lehenik rollback egingo dugu datu-basea desblokeatzeko.
 				if (db.getTransaction().isActive()) {
 					db.getTransaction().rollback();
 				}
 				
-				// Orain bai, seguru gaude transakzio berri bat hasi eta dena garbitzeko
 				db.getTransaction().begin();
 				
 				Sale s = db.find(Sale.class, testSaleNumber);
@@ -167,6 +163,4 @@ public class RemoveSaleWhiteBoxBDTest {
 		Sale dbSale = db.find(Sale.class, testSaleNumber);
 		assertNull(dbSale);
 	}
-	
-	
 }

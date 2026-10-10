@@ -127,9 +127,10 @@ public class Seller implements Serializable {
 	// --- BESTE METODOAK ---
 
 	public Sale addSale(String title, String description, int status, float price, Date pubDate, File file) {
-		Sale sale = new Sale(title, description, status, price, pubDate, file, this);
-        sales.add(sale);
-        return sale;
+		SaleData saleData = new SaleData(title, description, status, price, pubDate, file, this);
+		Sale s = new Sale(saleData);
+        sales.add(s);
+        return s;
 	}
 
 	public boolean doesSaleExist(String title) {	

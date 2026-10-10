@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import dataAccess.DataAccess;
 import domain.Sale;
+import domain.SaleData;
 import domain.Seller;
 
 public class CreateReclamationBlackBoxBDTest {
@@ -25,17 +26,16 @@ public class CreateReclamationBlackBoxBDTest {
     public static void tearDownClass() {
         sut.close();
     }
-    
-    
-    
-   @Test
+
+    @Test
     public void testCreateReclamationSuccessBD() {
         // 1. Datuak prestatu DBan
         Seller saltzaile = new Seller("saltzaileBD@gmail.com", "Saltzaile Test", "123");
         Seller erosle = new Seller("erosleBD@gmail.com", "Erosle Test", "123");
         
-        // ZUZENDUTA: null fitxategiaren ordez eta saltzaile amaieran
-        Sale sale = new Sale("Produktua Test", "Deskribapena", 1, 50.0f, new Date(), null, saltzaile);
+        // ZUZENDUTA: "Keep unit interfaces small" jarraibidea jarraituz, SaleData erabili da
+        SaleData saleData = new SaleData("Produktua Test", "Deskribapena", 1, 50.0f, new Date(), null, saltzaile);
+        Sale sale = new Sale(saleData);
         sale.setSaleNumber(9999); // Probako identifikadore bat
 
         sut.addSellerWithSaleAndBuyer(saltzaile, sale, erosle);

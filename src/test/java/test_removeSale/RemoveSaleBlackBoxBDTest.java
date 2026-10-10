@@ -26,9 +26,9 @@ public class RemoveSaleBlackBoxBDTest {
 	
 	@Before
 	public void setUp() {
-		emf = Persistence.createEntityManagerFactory("objectdb:test.odb"); 
+		emf = Persistence.createEntityManagerFactory("objectdb:test.odb");
 		db = emf.createEntityManager();
-		sut = new DataAccess(db); 
+		sut = new DataAccess(db);
 	}
 	
 	@After
@@ -98,7 +98,7 @@ public class RemoveSaleBlackBoxBDTest {
 		
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
-		sale.setSeller(jabeErreala); 
+		sale.setSeller(jabeErreala);
 		
 		db.persist(saltzailea);
 		db.persist(jabeErreala);
@@ -118,7 +118,7 @@ public class RemoveSaleBlackBoxBDTest {
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
 		sale.setSeller(saltzailea);
-		sale.setSold(true); 
+		sale.setSold(true);
 		
 		db.persist(saltzailea);
 		db.persist(sale);
@@ -141,7 +141,7 @@ public class RemoveSaleBlackBoxBDTest {
 		Sale sale = new Sale();
 		sale.setSaleNumber(testSaleNumber);
 		sale.setSeller(saltzailea);
-		sale.setSold(false); 
+		sale.setSold(false);
 		
 		db.persist(saltzailea);
 		db.persist(sale);

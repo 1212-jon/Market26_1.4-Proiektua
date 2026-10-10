@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import dataAccess.DataAccess;
 import domain.Sale;
+import domain.SaleData;
 import domain.Seller;
 
 public class CreateReclamationWhiteBoxBDTest {
@@ -26,7 +27,7 @@ public class CreateReclamationWhiteBoxBDTest {
         sut.close();
     }
 
-   @Test
+    @Test
     public void testCreateReclamationNullDescriptionBD() {
         // Path 1: deskribapena null denean -> false bueltatu behar du
         boolean res = sut.createReclamation(100, null, "erosle@gmail.com");
@@ -52,7 +53,10 @@ public class CreateReclamationWhiteBoxBDTest {
         // Path 4: Salmenta existitzen da baina eroslea ez dago DBan -> false bueltatu behar du
         Seller saltzaile = new Seller("saltzaileWB@gmail.com", "Saltzaile WB", "123");
         Seller erosle = new Seller("erosleWB@gmail.com", "Erosle WB", "123");
-        Sale sale = new Sale("Produktua WB", "Deskribapena", 1, 30.0f, new Date(), null, saltzaile);
+        
+        // ZUZENDUTA: "Keep unit interfaces small" jarraibidea jarraituz, SaleData erabili da
+        SaleData saleData = new SaleData("Produktua WB", "Deskribapena", 1, 30.0f, new Date(), null, saltzaile);
+        Sale sale = new Sale(saleData);
         sale.setSaleNumber(8888);
 
         sut.addSellerWithSaleAndBuyer(saltzaile, sale, erosle);
@@ -65,6 +69,4 @@ public class CreateReclamationWhiteBoxBDTest {
         // Garbiketa
         sut.removeReclamationTestData("saltzaileWB@gmail.com", "erosleWB@gmail.com", 8888);
     }
-    
-    
 }

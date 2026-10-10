@@ -34,7 +34,6 @@ public class RemoveSaleWhiteBoxTestMock {
 		sut = new DataAccess(db);
 	}
 	
-
 	@Test
 	public void emailNull() {
 		Sale sale = new Sale();
@@ -45,7 +44,6 @@ public class RemoveSaleWhiteBoxTestMock {
 		assertFalse(emaitza);
 	}
 	
-
 	@Test
 	public void saleNull(){
 		String email = "jon@gmail.com";
@@ -112,7 +110,7 @@ public class RemoveSaleWhiteBoxTestMock {
 		Sale sale = new Sale();
 		sale.setSaleNumber(123);
 		sale.setSeller(saltzailea);
-		sale.setSold(true); 
+		sale.setSold(true);
 		
 		when(db.find(Seller.class, email)).thenReturn(saltzailea);
 		when(db.find(Sale.class, 123)).thenReturn(sale);
@@ -120,7 +118,7 @@ public class RemoveSaleWhiteBoxTestMock {
 		boolean emaitza = sut.removeSale(email, sale);
 		
 		assertFalse(emaitza);
-		verify(et, times(1)).rollback(); 
+		verify(et, times(1)).rollback();
 	}
 	
 	@Test
@@ -131,7 +129,7 @@ public class RemoveSaleWhiteBoxTestMock {
 		Sale sale = new Sale();
 		sale.setSaleNumber(123);
 		sale.setSeller(saltzailea);
-		sale.setSold(false); 
+		sale.setSold(false);
 		
 		when(db.find(Seller.class, email)).thenReturn(saltzailea);
 		when(db.find(Sale.class, 123)).thenReturn(sale);
@@ -156,6 +154,6 @@ public class RemoveSaleWhiteBoxTestMock {
 		boolean emaitza = sut.removeSale(email, sale);
 		
 		assertFalse(emaitza);
-		verify(et, times(1)).rollback(); 
+		verify(et, times(1)).rollback();
 	}
 }
