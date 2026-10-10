@@ -36,7 +36,7 @@ public class RegisterWhiteBoxBDTest {
             sut.removeSeller("jonhodei@gmail.com");
         }
     }
-/*
+
   @Test
     public void testRegisterEmailNull() {
         Seller s = sut.register(null, "Enara", "Abcde1234!");
@@ -74,5 +74,5 @@ public class RegisterWhiteBoxBDTest {
         assertNotNull(s);
         assertEquals("jonhodei@gmail.com", s.getEmail());
         assertEquals("Hodei", s.getName());
-    }*/
+    }
 }

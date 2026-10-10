@@ -35,7 +35,7 @@ public class RegisterBlackBoxBDTest {
             sut.removeSeller("jonelor@gmail.com");
         }
     }
-/*
+
    @Test
     public void testRegisterSuccessBD() {
         Seller s = sut.register("jonsalegi@gmail.com", "Hodei", "EnaraANª123");
@@ -69,5 +69,5 @@ public class RegisterBlackBoxBDTest {
         assertNull("Emaila null", s1);
         assertNull("Izena null", s2);
         assertNull("Pasahitza null", s3);
-    }*/
+    }
 }
