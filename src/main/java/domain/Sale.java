@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-
 @SuppressWarnings("serial")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
@@ -50,29 +49,34 @@ public class Sale implements Serializable {
 		super();
 	}
 		
-	public Sale(String title, String description, int status, float price, Date pubDate, File file, Seller seller) {
+	/**
+	 * ERREFAKTORIZATUTA: "Keep unit interfaces small" jarraibidea jarraituz, 
+	 * 7 parametro banaka pasa beharrean SaleData objektu bakarra jasotzen du.
+	 */
+	public Sale(SaleData data) {
 		super();
 
-		this.title = title;
-		this.description = description;
-		this.status = status;
-		this.price=price;
-		this.pubDate=pubDate;
+		this.title = data.getTitle();
+		this.description = data.getDescription();
+		this.status = data.getStatus();
+		this.price = data.getPrice();
+		this.pubDate = data.getPubDate();
         this.available = true; // Hasieran salgai dago
         
-		if (file!=null) {
-		    this.fileName=file.getName();
+        File file = data.getFile();
+		if (file != null) {
+		    this.fileName = file.getName();
 			try {
 				BufferedImage img1 = ImageIO.read(file);
-				String path="src/main/resources/images/";
-				File outputfile = new File(path+file.getName());
+				String path = "src/main/resources/images/";
+				File outputfile = new File(path + file.getName());
 			    ImageIO.write(img1, "png", outputfile); 
 			} catch(IOException ex) {
 				// Errore kudeaketa
 		    }
 		}
 
-		this.seller = seller;
+		this.seller = data.getSeller();
 	}
 	
 	public Integer getSaleNumber() { return saleNumber; }
@@ -82,7 +86,7 @@ public class Sale implements Serializable {
     public void setReclamation(Reclamation reclamation) { this.reclamation = reclamation; }
 	
 	/**
-	 * ZUZENDUTA: Salduta dagoela joko dugu boolean-a true bada EDO buyer bat badauka.
+ 	 * ZUZENDUTA: Salduta dagoela joko dugu boolean-a true bada EDO buyer bat badauka.
 	 */
 	public boolean isSold() {
 	    return sold || buyer != null;
@@ -117,7 +121,7 @@ public class Sale implements Serializable {
 	public String getFile() { return fileName; }
 	
 	public String toString(){
-		return saleNumber+";"+title+";"+price;  
+		return saleNumber + ";" + title + ";" + price;  
 	}
 
 	// GARRANTZITSUA SASKIARENTZAT: equals eta hashCode berridatzita bikoiztuak kontrolatzeko
