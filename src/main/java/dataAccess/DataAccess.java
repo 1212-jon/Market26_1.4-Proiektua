@@ -743,7 +743,6 @@ public class DataAccess  {
             Seller s = db.find(Seller.class, seller.getEmail());
 
             Sale offer = eskaintzaOsatu(params, d, s);
-    		return offer;
             
             db.persist(offer);
             s.addSale(offer); 
