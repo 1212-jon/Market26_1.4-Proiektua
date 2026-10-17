@@ -62,7 +62,7 @@ public class BLFacadeImplementation implements BLFacade {
     @WebMethod
     public Sale createSale(CreateSaleParams params) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
         dbManager.open();
-        Sale product = dbManager.createSale(params); // DTOa zuzenean pasatu
+        Sale product = dbManager.createSale(params);
         dbManager.close();
         return product;
     }
