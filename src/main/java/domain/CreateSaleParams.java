@@ -27,7 +27,6 @@ public class CreateSaleParams implements Serializable {
         this.parent = parent;
     }
 
-    // Getter-ak eta Setter-ak
     public String getTitle() { return title; }
     public String getDescription() { return description; }
     public int getNumStatus() { return numStatus; }

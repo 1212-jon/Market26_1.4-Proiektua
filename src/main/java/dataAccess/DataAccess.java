@@ -97,63 +97,53 @@ public class DataAccess  {
 	}
 
 	// 8 parametro dituen createSale metodoa (lehen createSale2 izena zuena)
-    public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file, Demand parentDemand) 
-            throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
-        
-        if (title == null || pubDate == null || sellerEmail == null) return null;
+	public Sale createSale(CreateSaleParams params) 
+	        throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
+	    
+	    if (params.getTitle() == null || params.getDate() == null || params.getSellerEmail() == null) return null;
 
-        try {
-            if(pubDate.before(UtilDate.trim(new Date()))) {
-                throw new MustBeLaterThanTodayException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorSaleMustBeLaterThanToday"));
-            }
-            if (file == null)
-                throw new FileNotUploadedException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorFileNotUploadedException"));
+	    try {
+	        if(params.getDate().before(UtilDate.trim(new Date()))) {
+	            throw new MustBeLaterThanTodayException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorSaleMustBeLaterThanToday"));
+	        }
+	        if (params.getImage() == null)
+	            throw new FileNotUploadedException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorFileNotUploadedException"));
 
-            db.getTransaction().begin();
-            Seller seller = db.find(Seller.class, sellerEmail);
-            
-            if (seller.doesSaleExist(title)) {
-                db.getTransaction().commit();
-                throw new SaleAlreadyExistException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.SaleAlreadyExist"));
-            }
+	        db.getTransaction().begin();
+	        Seller seller = db.find(Seller.class, params.getSellerEmail());
+	        
+	        if (seller.doesSaleExist(params.getTitle())) {
+	            db.getTransaction().commit();
+	            throw new SaleAlreadyExistException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.SaleAlreadyExist"));
+	        }
 
-            // Salmenta sortu
-            Sale sale = seller.addSale(title, description, status, price, pubDate, file);
-            
-            // Eskaera (parent) badago, lotu
-            if (parentDemand != null) {
-                Demand d = db.find(Demand.class, parentDemand.getDemandNumber());
-                sale.setParentDemand(d); 
-            }
+	        // Salmenta sortu
+	        Sale sale = seller.addSale(params.getTitle(), params.getDescription(), params.getNumStatus(), params.getPrice(), params.getDate(), params.getImage());
+	        
+	        // Eskaera (parent) badago, lotu
+	        if (params.getParent() != null) {
+	            Demand d = db.find(Demand.class, params.getParent().getDemandNumber());
+	            sale.setParentDemand(d); 
+	        }
 
-            db.persist(seller); 
-            db.getTransaction().commit();
-            return sale;
-            
-        } catch (Exception e) {
-            if (db.getTransaction().isActive()) db.getTransaction().rollback();
-            throw e;
-        }
-    }
+	        db.persist(seller); 
+	        db.getTransaction().commit();
+	        return sale;
+	        
+	    } catch (Exception e) {
+	        if (db.getTransaction().isActive()) db.getTransaction().rollback();
+	        throw e;
+	    }
+	}
 
-    // CreateSaleParams DTO-a zuzenean onartzeko aukera (gomendatua):
-    public Sale createSale(CreateSaleParams params) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
-        return createSale(
-            params.getTitle(),
-            params.getDescription(),
-            params.getNumStatus(),
-            params.getPrice(),
-            params.getDate(),
-            params.getSellerEmail(),
-            params.getImage(),
-            params.getParent()
-        );
-    }
- // 7 parametrodun jatorrizko metodoa (Demand gabe, null pasatuko dio 8koari)
-    public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file) 
-            throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
-        return createSale(title, description, status, price, pubDate, sellerEmail, file, null);
-    }
+  
+	// 7 parametrodun metodo laguntzailea
+	public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file) 
+	        throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
+	    
+	    CreateSaleParams params = new CreateSaleParams(title, description, status, price, pubDate, sellerEmail, file, null);
+	    return createSale(params);
+	}
 	
 	
 
