@@ -10,6 +10,7 @@ import javax.jws.WebService;
 
 import dataAccess.DataAccess;
 import domain.BlacklistedUser;
+import domain.CreateOfferParams;
 import domain.CreateSaleParams;
 import domain.Demand;
 import domain.Reclamation;
@@ -62,15 +63,7 @@ public class BLFacadeImplementation implements BLFacade {
     @WebMethod
     public Sale createSale(CreateSaleParams params) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
         dbManager.open();
-        Sale product = dbManager.createSale(params.getTitle(), 
-            params.getDescription(), 
-            params.getNumStatus(), 
-            params.getPrice(), 
-            params.getDate(), 
-            params.getSellerEmail(), 
-            params.getImage(), 
-            params.getParent()
-        );
+        Sale product = dbManager.createSale(params);
         dbManager.close();
         return product;
     }
@@ -360,7 +353,8 @@ public class BLFacadeImplementation implements BLFacade {
     @WebMethod
     public Sale createOffer(String title, float price, String description, String sellerEmail, Demand d) {
         Seller s = dbManager.getUser(sellerEmail);
-        return dbManager.createOffer(title, price, description, s, d);
+        CreateOfferParams params = new CreateOfferParams(title,price,description,s,d);
+        return dbManager.createOffer(params, d, s);
     }
     
     @WebMethod

@@ -28,6 +28,7 @@ import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
 import domain.BlacklistedUser;
+import domain.CreateOfferParams;
 import domain.CreateSaleParams;
 import domain.Demand;
 public class DataAccess  {
@@ -97,63 +98,53 @@ public class DataAccess  {
 	}
 
 	// 8 parametro dituen createSale metodoa (lehen createSale2 izena zuena)
-    public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file, Demand parentDemand) 
-            throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
-        
-        if (title == null || pubDate == null || sellerEmail == null) return null;
+	public Sale createSale(CreateSaleParams params) 
+	        throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
+	    
+	    if (params.getTitle() == null || params.getDate() == null || params.getSellerEmail() == null) return null;
 
-        try {
-            if(pubDate.before(UtilDate.trim(new Date()))) {
-                throw new MustBeLaterThanTodayException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorSaleMustBeLaterThanToday"));
-            }
-            if (file == null)
-                throw new FileNotUploadedException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorFileNotUploadedException"));
+	    try {
+	        if(params.getDate().before(UtilDate.trim(new Date()))) {
+	            throw new MustBeLaterThanTodayException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorSaleMustBeLaterThanToday"));
+	        }
+	        if (params.getImage() == null)
+	            throw new FileNotUploadedException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.ErrorFileNotUploadedException"));
 
-            db.getTransaction().begin();
-            Seller seller = db.find(Seller.class, sellerEmail);
-            
-            if (seller.doesSaleExist(title)) {
-                db.getTransaction().commit();
-                throw new SaleAlreadyExistException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.SaleAlreadyExist"));
-            }
+	        db.getTransaction().begin();
+	        Seller seller = db.find(Seller.class, params.getSellerEmail());
+	        
+	        if (seller.doesSaleExist(params.getTitle())) {
+	            db.getTransaction().commit();
+	            throw new SaleAlreadyExistException(ResourceBundle.getBundle(ETIQUETAS).getString("DataAccess.SaleAlreadyExist"));
+	        }
 
-            // Salmenta sortu
-            Sale sale = seller.addSale(title, description, status, price, pubDate, file);
-            
-            // Eskaera (parent) badago, lotu
-            if (parentDemand != null) {
-                Demand d = db.find(Demand.class, parentDemand.getDemandNumber());
-                sale.setParentDemand(d); 
-            }
+	        // Salmenta sortu
+	        Sale sale = seller.addSale(params.getTitle(), params.getDescription(), params.getNumStatus(), params.getPrice(), params.getDate(), params.getImage());
+	        
+	        // Eskaera (parent) badago, lotu
+	        if (params.getParent() != null) {
+	            Demand d = db.find(Demand.class, params.getParent().getDemandNumber());
+	            sale.setParentDemand(d); 
+	        }
 
-            db.persist(seller); 
-            db.getTransaction().commit();
-            return sale;
-            
-        } catch (Exception e) {
-            if (db.getTransaction().isActive()) db.getTransaction().rollback();
-            throw e;
-        }
-    }
+	        db.persist(seller); 
+	        db.getTransaction().commit();
+	        return sale;
+	        
+	    } catch (Exception e) {
+	        if (db.getTransaction().isActive()) db.getTransaction().rollback();
+	        throw e;
+	    }
+	}
 
-    // CreateSaleParams DTO-a zuzenean onartzeko aukera (gomendatua):
-    public Sale createSale(CreateSaleParams params) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
-        return createSale(
-            params.getTitle(),
-            params.getDescription(),
-            params.getNumStatus(),
-            params.getPrice(),
-            params.getDate(),
-            params.getSellerEmail(),
-            params.getImage(),
-            params.getParent()
-        );
-    }
- // 7 parametrodun jatorrizko metodoa (Demand gabe, null pasatuko dio 8koari)
-    public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file) 
-            throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
-        return createSale(title, description, status, price, pubDate, sellerEmail, file, null);
-    }
+  
+	// 7 parametrodun metodo laguntzailea
+	public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file) 
+	        throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
+	    
+	    CreateSaleParams params = new CreateSaleParams(title, description, status, price, pubDate, sellerEmail, file, null);
+	    return createSale(params);
+	}
 	
 	
 
@@ -599,6 +590,7 @@ public class DataAccess  {
         }
     }
     
+    
  // --- KONTUA ITXI ETA ZERRENDA BELTZA LOGIKA ---
 
     /**
@@ -614,26 +606,11 @@ public class DataAccess  {
             
             if (s != null) {
                 // 2. Eskaerak (Demands) ezabatu 
-                try {
-                    TypedQuery<Demand> queryD = db.createQuery("SELECT d FROM Demand d WHERE d.claimant.email = :email", Demand.class);
-                    queryD.setParameter("email", email);
-                    List<Demand> demands = queryD.getResultList();
-                    for (Demand d : demands) {
-                        db.remove(d);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Oharra: Ez da eskaerarik aurkitu");
-                }
+                ezabatuEskaerak(email);
 
                 // 3. Produktuak (Sale) desgaitu BAINA EZ EZABATU
                 // Bakarrik desgaitu eroslearen historian datuak gera daitezen
-                try {
-                    for (Sale sale : s.getSales()) {
-                        sale.setAvailable(false); // Ez da dendan agertuko, baina DBan jarraituko du
-                    }
-                } catch (Exception e) {
-                    System.out.println("Oharra: Errorea produktuak desgaitzean");
-                }
+                desgaituSalmentak(s);
                 
                 // 4. Erabiltzailea "desgaitu"
                 s.setAktibo(false);
@@ -654,6 +631,29 @@ public class DataAccess  {
             return false;
         }   
     }
+
+	private void desgaituSalmentak(Seller s) {
+		try {
+		    for (Sale sale : s.getSales()) {
+		        sale.setAvailable(false); // Ez da dendan agertuko, baina DBan jarraituko du
+		    }
+		} catch (Exception e) {
+		    System.out.println("Oharra: Errorea produktuak desgaitzean");
+		}
+	}
+
+	private void ezabatuEskaerak(String email) {
+		try {
+		    TypedQuery<Demand> queryD = db.createQuery("SELECT d FROM Demand d WHERE d.claimant.email = :email", Demand.class);
+		    queryD.setParameter("email", email);
+		    List<Demand> demands = queryD.getResultList();
+		    for (Demand d : demands) {
+		        db.remove(d);
+		    }
+		} catch (Exception e) {
+		    System.out.println("Oharra: Ez da eskaerarik aurkitu");
+		}
+	}
 
     /**
      * Egiaztatu email bat zerrenda beltzean dagoen.
@@ -736,34 +736,38 @@ public class DataAccess  {
         }
     }
 
-    public Sale createOffer(String title, float price, String description, Seller seller, Demand demand) {
+    public Sale createOffer(CreateOfferParams params, Demand demand, Seller seller) {
         db.getTransaction().begin();
         try {
             Demand d = db.find(Demand.class, demand.getDemandNumber());
             Seller s = db.find(Seller.class, seller.getEmail());
 
-            Sale offer = new Sale(); 
-            offer.setTitle(title);
-            offer.setPrice(price);
-            offer.setDescription(description);
-            offer.setSeller(s);
-            offer.setPublicationDate(new java.util.Date());
-            offer.setParentDemand(d);
-
+            Sale offer = eskaintzaOsatu(params, d, s);
+            
             db.persist(offer);
-            
-            
             s.addSale(offer); 
-
             db.getTransaction().commit();
             return offer;
-            
         } catch (Exception e) {
             if (db.getTransaction().isActive()) db.getTransaction().rollback();
             e.printStackTrace();
             return null;
         }
     }
+
+	private Sale eskaintzaOsatu(CreateOfferParams params, Demand d, Seller s) {
+		Sale offer = new Sale(); 
+		offer.setTitle(params.getTitle());
+		offer.setPrice(params.getPrice());
+		offer.setDescription(params.getDescription());
+		offer.setSeller(s);
+		offer.setPublicationDate(new java.util.Date());
+		offer.setParentDemand(d);
+		return offer;
+	}
+
+	
+	
 
     // OfertakGUI-ak behar duen kontsulta
     public List<Sale> getOffersForDemand(Demand d) {

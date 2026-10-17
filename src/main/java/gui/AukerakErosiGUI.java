@@ -115,24 +115,24 @@ public class AukerakErosiGUI extends JFrame {
 		JRadioButton rdbtnEus = new JRadioButton("Euskara");
 		rdbtnEus.setSelected(true);
 		rdbtnEus.addActionListener(e -> {
-			Locale.setDefault(new Locale("eu"));
-			paintAgain();
+			String hizkuntza = "eu";
+			aldatuHizkuntza(hizkuntza);
 		});
 		buttonGroup.add(rdbtnEus);
 		panelHizkuntzak.add(rdbtnEus);
 
 		JRadioButton rdbtnEs = new JRadioButton("Castellano");
 		rdbtnEs.addActionListener(e -> {
-			Locale.setDefault(new Locale("es"));
-			paintAgain();
+			String hizkuntza = "es";
+			aldatuHizkuntza(hizkuntza);
 		});
 		buttonGroup.add(rdbtnEs);
 		panelHizkuntzak.add(rdbtnEs);
 
 		JRadioButton rdbtnEn = new JRadioButton("English");
 		rdbtnEn.addActionListener(e -> {
-			Locale.setDefault(new Locale("en"));
-			paintAgain();
+			String hizkuntza = "en";
+			aldatuHizkuntza(hizkuntza);
 		});
 		buttonGroup.add(rdbtnEn);
 		panelHizkuntzak.add(rdbtnEn);
@@ -147,6 +147,11 @@ public class AukerakErosiGUI extends JFrame {
 		});
 		
 		this.setLocationRelativeTo(null);
+	}
+
+	private void aldatuHizkuntza(String hizkuntza) {
+		Locale.setDefault(new Locale(hizkuntza));
+		paintAgain();
 	}
 	
 	private void paintAgain() {
