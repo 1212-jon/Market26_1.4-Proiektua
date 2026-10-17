@@ -28,6 +28,7 @@ import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
 import domain.BlacklistedUser;
+import domain.CreateOfferParams;
 import domain.CreateSaleParams;
 import domain.Demand;
 public class DataAccess  {
@@ -735,13 +736,15 @@ public class DataAccess  {
         }
     }
 
-    public Sale createOffer(String title, float price, String description, Seller seller, Demand demand) {
+    public Sale createOffer(CreateOfferParams params, Demand demand, Seller seller) {
         db.getTransaction().begin();
         try {
             Demand d = db.find(Demand.class, demand.getDemandNumber());
             Seller s = db.find(Seller.class, seller.getEmail());
 
-            Sale offer = eskaintzaOsatu(title, price, description, d, s);
+            Sale offer = eskaintzaOsatu(params, d, s);
+    		return offer;
+            
             db.persist(offer);
             s.addSale(offer); 
             db.getTransaction().commit();
@@ -753,16 +756,17 @@ public class DataAccess  {
         }
     }
 
-	private Sale eskaintzaOsatu(String title, float price, String description, Demand d, Seller s) {
+	private Sale eskaintzaOsatu(CreateOfferParams params, Demand d, Seller s) {
 		Sale offer = new Sale(); 
-		offer.setTitle(title);
-		offer.setPrice(price);
-		offer.setDescription(description);
+		offer.setTitle(params.getTitle());
+		offer.setPrice(params.getPrice());
+		offer.setDescription(params.getDescription());
 		offer.setSeller(s);
 		offer.setPublicationDate(new java.util.Date());
 		offer.setParentDemand(d);
 		return offer;
 	}
+
 	
 	
 
