@@ -742,28 +742,30 @@ public class DataAccess  {
             Demand d = db.find(Demand.class, demand.getDemandNumber());
             Seller s = db.find(Seller.class, seller.getEmail());
 
-            Sale offer = new Sale(); 
-            offer.setTitle(title);
-            offer.setPrice(price);
-            offer.setDescription(description);
-            offer.setSeller(s);
-            offer.setPublicationDate(new java.util.Date());
-            offer.setParentDemand(d);
-
+            Sale offer = eskaintzaOsatu(title, price, description, d, s);
             db.persist(offer);
-            
-            
             s.addSale(offer); 
-
             db.getTransaction().commit();
             return offer;
-            
         } catch (Exception e) {
             if (db.getTransaction().isActive()) db.getTransaction().rollback();
             e.printStackTrace();
             return null;
         }
     }
+
+	private Sale eskaintzaOsatu(String title, float price, String description, Demand d, Seller s) {
+		Sale offer = new Sale(); 
+		offer.setTitle(title);
+		offer.setPrice(price);
+		offer.setDescription(description);
+		offer.setSeller(s);
+		offer.setPublicationDate(new java.util.Date());
+		offer.setParentDemand(d);
+		return offer;
+	}
+	
+	
 
     // OfertakGUI-ak behar duen kontsulta
     public List<Sale> getOffersForDemand(Demand d) {
