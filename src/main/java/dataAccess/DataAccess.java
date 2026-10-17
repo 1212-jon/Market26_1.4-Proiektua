@@ -231,7 +231,7 @@ public class DataAccess  {
 
 	public Seller register(String email, String name, String password) {
 
-		if (email == null || name == null || password == null) return null;
+		if (NullDu(email, name, password)) return null;
 
 		db.getTransaction().begin();
 		Seller s = db.find(Seller.class, email);
@@ -245,6 +245,10 @@ public class DataAccess  {
 		return newSeller;
 	}
 
+	private boolean NullDu(String email, String name, String password) {
+		return email == null || name == null || password == null;
+	}
+
 	
 	/**
 	 * Produktu bat datu-basetik ezabatzen du baldin eta saioa hasi duen erabiltzailea
@@ -255,6 +259,7 @@ public class DataAccess  {
 	 * @return {@code true} produktua ondo ezabatu bada; {@code false} baldintzaren bat betetzen ez bada edo errorea gertatzen bada.
 	 * @author Hodei
 	 */
+	
 	public boolean removeSale(String email, Sale sale) {
 		// 3. puntua: Balidazioa (null-ak ekiditeko)
 		if (email == null || sale == null) return false;
@@ -267,16 +272,7 @@ public class DataAccess  {
 			if (seller != null && s != null && s.getSeller().getEmail().equals(email)) {
 
 				// 1. puntua: Erosita badago, ezin da ezabatu
-				if (s.isSold()) {
-					System.out.println("ERROREA: Ezin da ezabatu, produktua jada salduta dago.");
-					db.getTransaction().rollback();
-					return false; 
-				}
-
-				seller.getSales().remove(s);
-				db.remove(s);
-				db.getTransaction().commit();
-				return true;
+				return salmentaEzabapena(seller, s);
 			}
 			return false;
 		} catch (Exception e) {
@@ -284,6 +280,20 @@ public class DataAccess  {
 			return false;
 		}
 	}
+
+	private boolean salmentaEzabapena(Seller seller, Sale s) {
+		if (s.isSold()) {
+			System.out.println("ERROREA: Ezin da ezabatu, produktua jada salduta dago.");
+			db.getTransaction().rollback();
+			return false; 
+		}
+
+		seller.getSales().remove(s);
+		db.remove(s);
+		db.getTransaction().commit();
+		return true;
+	}
+	
 	
 	
 	public boolean buySale(int saleNumber, String buyerEmail) {
@@ -403,6 +413,7 @@ public class DataAccess  {
 		db.persist(r);
 		return saltzailea;
 	}
+	
 	
 	
 

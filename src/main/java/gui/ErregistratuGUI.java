@@ -6,16 +6,14 @@ import businessLogic.BLFacade;
 import domain.Seller;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter; // Importado
-import java.awt.event.WindowEvent;   // Importado
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.Color;
-
 import java.util.ResourceBundle;
 import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
-import java.awt.Toolkit;
 
 public class ErregistratuGUI extends JFrame {
 
@@ -28,13 +26,12 @@ public class ErregistratuGUI extends JFrame {
     private JLabel lblError; 
 
     public ErregistratuGUI() {
-    	ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/Logo.png"));
-    	setIconImage(icon.getImage());
+        ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/Logo.png"));
+        setIconImage(icon.getImage());
         setFocusable(false);
         setTitle(ResourceBundle.getBundle("Etiquetas").getString("ErregistratuGUI.MainTitle"));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         setBounds(100, 100, 480, 360);
-        
         
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -81,33 +78,17 @@ public class ErregistratuGUI extends JFrame {
         lblPassRep.setBounds(46, 195, 150, 18);
         contentPane.add(lblPassRep);
         
-        // --- TESTU EREMUAK (Fields) ---
-        textFieldEmail = new JTextField();
-        textFieldEmail.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(64, 224, 208)));
-        textFieldEmail.setForeground(Color.DARK_GRAY);
-        textFieldEmail.setBackground(Color.WHITE);
-        textFieldEmail.setBounds(208, 45, 180, 20);
+        // --- TESTU EREMUAK (Metodo laguntzaileak erabiliz kode-bikoizketa ekiditeko) ---
+        textFieldEmail = textEremuaSortu(45);
         contentPane.add(textFieldEmail);
         
-        textFieldIzena = new JTextField();
-        textFieldIzena.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(64, 224, 208)));
-        textFieldIzena.setForeground(Color.DARK_GRAY);
-        textFieldIzena.setBackground(Color.WHITE);
-        textFieldIzena.setBounds(208, 94, 180, 20);
+        textFieldIzena = textEremuaSortu(94);
         contentPane.add(textFieldIzena);
         
-        passwordField = new JPasswordField();
-        passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(64, 224, 208)));
-        passwordField.setForeground(Color.DARK_GRAY);
-        passwordField.setBackground(Color.WHITE);
-        passwordField.setBounds(208, 140, 180, 20);
+        passwordField = passwordEremuaSortu(140);
         contentPane.add(passwordField);
         
-        passwordField_1 = new JPasswordField();
-        passwordField_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(64, 224, 208)));
-        passwordField_1.setForeground(Color.DARK_GRAY);
-        passwordField_1.setBackground(Color.WHITE);
-        passwordField_1.setBounds(208, 193, 180, 20);
+        passwordField_1 = passwordEremuaSortu(193);
         contentPane.add(passwordField_1);
 
         lblError = new JLabel("");
@@ -142,7 +123,7 @@ public class ErregistratuGUI extends JFrame {
 
                 if (!pasahitzaSeguruaDa(pass)) {
                     lblError.setText("<html><center>"+ResourceBundle.getBundle("Etiquetas").getString("ErregistratuGUI.PasswordError1")+"<br>"
-                                   + ResourceBundle.getBundle("Etiquetas").getString("ErregistratuGUI.PasswordError2")+"</center></html>");
+                            + ResourceBundle.getBundle("Etiquetas").getString("ErregistratuGUI.PasswordError2")+"</center></html>");
                     return;
                 }
 
@@ -181,5 +162,23 @@ public class ErregistratuGUI extends JFrame {
     private boolean pasahitzaSeguruaDa(String password) {
         String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^*&+=!?.])(?=\\S+$).{8,12}$";
         return password.matches(pattern);
+    }
+
+    private JTextField textEremuaSortu(int yPos) {
+        JTextField tf = new JTextField();
+        tf.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(64, 224, 208)));
+        tf.setForeground(Color.DARK_GRAY);
+        tf.setBackground(Color.WHITE);
+        tf.setBounds(208, yPos, 180, 20);
+        return tf;
+    }
+
+    private JPasswordField passwordEremuaSortu(int yPos) {
+        JPasswordField pf = new JPasswordField();
+        pf.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(64, 224, 208)));
+        pf.setForeground(Color.DARK_GRAY);
+        pf.setBackground(Color.WHITE);
+        pf.setBounds(208, yPos, 180, 20);
+        return pf;
     }
 }
