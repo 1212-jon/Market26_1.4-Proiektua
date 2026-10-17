@@ -599,6 +599,7 @@ public class DataAccess  {
         }
     }
     
+    
  // --- KONTUA ITXI ETA ZERRENDA BELTZA LOGIKA ---
 
     /**
@@ -614,26 +615,11 @@ public class DataAccess  {
             
             if (s != null) {
                 // 2. Eskaerak (Demands) ezabatu 
-                try {
-                    TypedQuery<Demand> queryD = db.createQuery("SELECT d FROM Demand d WHERE d.claimant.email = :email", Demand.class);
-                    queryD.setParameter("email", email);
-                    List<Demand> demands = queryD.getResultList();
-                    for (Demand d : demands) {
-                        db.remove(d);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Oharra: Ez da eskaerarik aurkitu");
-                }
+                ezabatuEskaerak(email);
 
                 // 3. Produktuak (Sale) desgaitu BAINA EZ EZABATU
                 // Bakarrik desgaitu eroslearen historian datuak gera daitezen
-                try {
-                    for (Sale sale : s.getSales()) {
-                        sale.setAvailable(false); // Ez da dendan agertuko, baina DBan jarraituko du
-                    }
-                } catch (Exception e) {
-                    System.out.println("Oharra: Errorea produktuak desgaitzean");
-                }
+                desgaituSalmentak(s);
                 
                 // 4. Erabiltzailea "desgaitu"
                 s.setAktibo(false);
@@ -654,6 +640,29 @@ public class DataAccess  {
             return false;
         }   
     }
+
+	private void desgaituSalmentak(Seller s) {
+		try {
+		    for (Sale sale : s.getSales()) {
+		        sale.setAvailable(false); // Ez da dendan agertuko, baina DBan jarraituko du
+		    }
+		} catch (Exception e) {
+		    System.out.println("Oharra: Errorea produktuak desgaitzean");
+		}
+	}
+
+	private void ezabatuEskaerak(String email) {
+		try {
+		    TypedQuery<Demand> queryD = db.createQuery("SELECT d FROM Demand d WHERE d.claimant.email = :email", Demand.class);
+		    queryD.setParameter("email", email);
+		    List<Demand> demands = queryD.getResultList();
+		    for (Demand d : demands) {
+		        db.remove(d);
+		    }
+		} catch (Exception e) {
+		    System.out.println("Oharra: Ez da eskaerarik aurkitu");
+		}
+	}
 
     /**
      * Egiaztatu email bat zerrenda beltzean dagoen.
